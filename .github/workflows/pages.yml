@@ -1,0 +1,40 @@
+name: 发布湘湘的生日网页
+
+# 用户启用 GitHub Pages 后，可在操作页面手动运行；上传源码不会提前发布。
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: 检查并发布生日网页
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 读取源码
+        uses: actions/checkout@v6
+      - name: 配置运行环境
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: 检查核心流程
+        run: npm run check
+      - name: 配置网页发布
+        uses: actions/configure-pages@v5
+      - name: 上传静态网页
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+      - name: 发布网页
+        id: deployment
+        uses: actions/deploy-pages@v4

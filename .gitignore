@@ -1,0 +1,7 @@
+node_modules/
+.sites-runtime/
+test-results/
+*.zip
+.openai/
+.env
+.env.*

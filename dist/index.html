@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0c1026">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; font-src 'self'; media-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="description" content="送给湘湘的一场星光生日旅程。">
+  <title>湘湘，这一天只属于你</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%230c1026'/%3E%3Cpath d='M32 8L38 25L56 32L38 39L32 56L26 39L8 32L26 25Z' fill='%23efd49b'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="ambient" aria-hidden="true"></div>
+  <header class="topbar"><a class="brand" href="./" aria-label="只为你点亮的这一天"><span class="brand-star">✧</span><span>今日，特别为你</span></a><div class="sound-controls"><button id="sound" class="quiet-button" aria-pressed="false" aria-label="播放生日背景音乐">♫ <span>音乐关</span></button><button id="sfx" class="quiet-button" aria-pressed="false" aria-label="开启互动音效">♪ <span>音效关</span></button></div></header>
+  <p id="music-status" role="status" aria-live="polite"></p>
+  <main id="app" tabindex="-1"></main>
+  <footer class="footer"><span>一份心意 · 一段小小的旅程</span><button id="restart" class="text-button">重新开始</button></footer>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="dialog"><div id="dialog-content"></div></dialog>
+  <div id="blackout" aria-hidden="true"></div>
+  <noscript><div class="noscript">请在浏览器中允许网页运行脚本，再来开启这份礼物。生日快乐，愿你自由、快乐、平安、顺利。</div></noscript>
+</body>
+</html>
