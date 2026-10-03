@@ -1,4 +1,7 @@
 @charset "UTF-8";
+/* 防止手机长按游戏控件时唤起文字选择、放大镜或系统菜单；正文仍可选择。 */
+.hold-zone,.hold-zone *,.move-controls button,.move-controls button *{touch-action:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+.hold-zone>*{pointer-events:none}
 /* 中文输入法使用正常文本框；不使用会限制输入法的密码类型。 */
 .wish-field-wrap{position:relative}#wish.private-wish{display:block;min-height:110px;resize:vertical;font:inherit;line-height:1.8;letter-spacing:2px;-webkit-text-security:disc;caret-color:var(--gold)}#wish.private-wish::placeholder{-webkit-text-security:none;color:var(--muted);letter-spacing:1px}#wish-mask{display:none;position:absolute;inset:18px;pointer-events:none;font-size:18px;line-height:1.8;letter-spacing:2px;color:var(--gold);overflow:hidden}
 @supports not (-webkit-text-security:disc){#wish.private-wish{color:transparent;text-shadow:none}#wish.private-wish::selection{color:transparent}#wish-mask{display:block}}
